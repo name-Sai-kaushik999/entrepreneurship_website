@@ -157,24 +157,33 @@ footer a { color: #00b894; }
   <div class="container">
     <h2>See H&H in Action</h2>
     <p class="lead">Watch how we create personalized, hygienic meals just for you.</p>
+
     <div class="video-wrapper" id="videoWrapper">
       <div class="video-bg"></div>
+
       <!-- Local Video -->
-      <video id="hhVideo" autoplay muted loop playsinline
-        poster="https://via.placeholder.com/800x450?text=Loading+Video">
+      <video id="hhVideo" playsinline poster="https://via.placeholder.com/800x450?text=Loading+Video">
         <source src="hh.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <div class="play-overlay" id="playOverlay">&#9658;</div>
-      <div class="video-caption" id="videoCaption"><h3>Fresh, Personalized, Hygienic Meals</h3><p>Tailored to your taste and delivered right to your doorstep.</p></div>
 
-      <!-- Floating Labels in safe corners -->
+      <!-- Overlay Play Button -->
+      <div class="play-overlay" id="playOverlay">&#9658;</div>
+
+      <!-- Caption -->
+      <div class="video-caption" id="videoCaption">
+        <h3>Fresh, Personalized, Hygienic Meals</h3>
+        <p>Tailored to your taste and delivered right to your doorstep.</p>
+      </div>
+
+      <!-- Floating Labels -->
       <div class="floating-label top-left">Fresh</div>
       <div class="floating-label top-right">Hygienic</div>
       <div class="floating-label bottom-right">Customizable</div>
     </div>
   </div>
 </section>
+
 
 <!-- Pricing -->
 <section id="pricing">
@@ -220,7 +229,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { threshold: 0.3 });
   observer.observe(videoWrapper);
 
-  // Play/Pause toggle
+  // Show play button initially
+  playOverlay.style.display = "block";
+
+  // Click to toggle play/pause
   videoWrapper.addEventListener("click", () => {
     if (video.paused) {
       video.play();
@@ -232,5 +244,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
 </body>
 </html>
